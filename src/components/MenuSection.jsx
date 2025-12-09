@@ -125,7 +125,7 @@ export default function MenuSection() {
     <section className="py-20 bg-white">
       {/* Menu Tabs */}
       <div className="text-center mb-12">
-        <h1 className="font-vibes text-4xl font-700 mb-12 text-gray-900">Our Menu</h1>
+        <h1 className="font-vibes text-6xl mb-10 text-black">Our Menu</h1>
         <div className="flex justify-center gap-4 flex-wrap">
           {menuCategories.map((category) => (
             <button

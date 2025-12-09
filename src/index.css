@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-[#0f1112] text-white font-poppins;
-}
+/* body {
+  @apply font-poppins;
+} */
