@@ -17,7 +17,14 @@ export default function App() {
 
     {/* Page content changes */}
     <Routes>
-     <Route path="/" element={<Hero/>} />
+     <Route path="/" element={  <>
+        <Hero />
+        <MenuSection />
+        <AboutSection />
+        <BookTableSection />
+        <TestimonialSection />
+      </>} />
+      
      <Route path="/menu" element={<MenuSection/>} />
      <Route path="/about" element={<AboutSection/>} />
      <Route path="/book-table" element={<BookTableSection/>} />
