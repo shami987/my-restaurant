@@ -6,6 +6,7 @@ import AboutSection from "./components/AboutSection";
 import BookTableSection from "./components/BookTableSection";
 import TestimonialSection from "./components/TestimonialSection";
 import FooterSection from "./components/FooterSection";
+import ProductDetail from "./components/ProductDetail";
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
       </>} />
       
      <Route path="/menu" element={<MenuSection/>} />
+     <Route path="/menu/:id" element={<ProductDetail />} /> 
      <Route path="/about" element={<AboutSection/>} />
      <Route path="/book-table" element={<BookTableSection/>} />
     </Routes>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import burgerImg from "../assets/burger.avif";
 import pizzaImg from "../assets/pizza.jpg";
 import pizza1Img from "../assets/pizza1.webp";
@@ -146,35 +147,35 @@ export default function MenuSection() {
       {/* Menu Items */}
       <div className="max-w-6xl mx-auto px-5 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
         {filteredItems.map((item) => (
-          <div
-            key={item.id}
-            className="rounded-lg overflow-hidden shadow-lg bg-gray-100 transition"
-          >
-            {/* Image */}
-            <div className="overflow-hidden group">
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Footer: same width, curved top-left */}
-            <div className="bg-gray-800 text-white p-6 rounded-b-lg">
-              <h3 className="font-semibold text-xl mb-3">{item.name}</h3>
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                {item.description}
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-bold">{item.price}</span>
-                <button className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center font-bold hover:bg-yellow-500 transition shadow-lg">
-                  🛒
-                </button>
-              </div>
-            </div>
-          </div>
+          <Link to={`/menu/${item.id}`}>
+  <div
+    key={item.id}
+    className="rounded-lg overflow-hidden shadow-lg bg-gray-100 transition cursor-pointer"
+  >
+    <div className="overflow-hidden group">
+      <img
+        src={item.img}
+        alt={item.name}
+        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+    </div>
+    <div className="bg-gray-800 text-white p-6 rounded-b-lg">
+      <h3 className="font-semibold text-xl mb-3">{item.name}</h3>
+      <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+        {item.description}
+      </p>
+      <div className="flex items-center justify-between">
+        <span className="text-lg font-bold">{item.price}</span>
+        <button className="bg-yellow-400 text-black w-12 h-12 rounded-full flex items-center justify-center font-bold hover:bg-yellow-500 transition shadow-lg">
+          🛒
+        </button>
+      </div>
+    </div>
+  </div>
+</Link>
         ))}
       </div>
     </section>
   );
 }
+export { menuItems };
