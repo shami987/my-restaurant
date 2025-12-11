@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 export default function BookTableSection() {
   const [formData, setFormData] = useState({
@@ -16,9 +18,20 @@ export default function BookTableSection() {
     });
   };
 
-  const handleSubmit = () => {
-    console.log("Booking data:", formData);
-    alert(`Table booked for ${formData.persons} person(s) on ${formData.date}`);
+const handleSubmit = async () => {
+  try {
+    // save to firebase
+    await addDoc(collection(db, "bookings"), {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      persons: formData.persons,
+      date: formData.date,
+      createdAt: new Date(),
+    });
+
+    alert("Table booked successfully!");
+
     // Reset form
     setFormData({
       name: "",
@@ -27,7 +40,12 @@ export default function BookTableSection() {
       persons: "",
       date: "",
     });
-  };
+  } catch (error) {
+    console.error("Error saving booking:", error);
+    alert("Failed to save booking. Try again.");
+  }
+};
+
 
   return (
     <section className="py-20 bg-gray-50">

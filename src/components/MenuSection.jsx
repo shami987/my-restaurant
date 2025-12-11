@@ -123,7 +123,7 @@ export default function MenuSection() {
       : menuItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <section className="py-20 bg-white">
+    <section id="menu-section" className="py-20 bg-white">
       {/* Menu Tabs */}
       <div className="text-center mb-12">
         <h1 className="font-vibes text-6xl mb-10 text-black">Our Menu</h1>

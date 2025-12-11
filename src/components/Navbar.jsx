@@ -47,9 +47,19 @@ const links = [
             </span>
           </Link>
           {/* Order button (desktop) */}
-          <button className="hidden md:block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">
-            Order Online
-          </button>
+<button
+  onClick={() => {
+    const section = document.getElementById("menu-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="hidden md:block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition"
+>
+  Order Online
+</button>
+
+
 
           {/* Hamburger (mobile) */}
           <button
@@ -76,7 +86,9 @@ const links = [
                {link.name}
             </Link>
           ))}
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">
+          <button 
+          
+          className="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">
             Order Online
           </button>
         </div>

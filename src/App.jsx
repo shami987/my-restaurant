@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import AdminDashboard from "./components/AdminDashboard";
 
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
      <Route path="/register" element={<Register />} />
      <Route path="/cart" element={<Cart />} />
     <Route path="/checkout" element={<Checkout />} />
+    <Route path="/admin" element={<AdminDashboard />} />
      <Route path="/book-table" element={<BookTableSection/>} />
     </Routes>
       
