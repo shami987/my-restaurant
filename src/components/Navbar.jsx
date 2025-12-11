@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaUser, FaShoppingCart } from "react-icons/fa"; // using react-icons
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,6 +33,19 @@ const links = [
 
         {/* Right side */}
         <div className="flex items-center space-x-3">
+               {/* Login icon */}
+          <Link to="/login" className="hover:text-yellow-400">
+            <FaUser size={20} />
+          </Link>
+
+          {/* Cart icon */}
+          <Link to="/cart" className="hover:text-yellow-400 relative">
+            <FaShoppingCart size={20} />
+            {/* optional badge */}
+            <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full px-1">
+              3
+            </span>
+          </Link>
           {/* Order button (desktop) */}
           <button className="hidden md:block bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">
             Order Online

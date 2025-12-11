@@ -7,6 +7,8 @@ import BookTableSection from "./components/BookTableSection";
 import TestimonialSection from "./components/TestimonialSection";
 import FooterSection from "./components/FooterSection";
 import ProductDetail from "./components/ProductDetail";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 
 export default function App() {
@@ -29,6 +31,8 @@ export default function App() {
      <Route path="/menu" element={<MenuSection/>} />
      <Route path="/menu/:id" element={<ProductDetail />} /> 
      <Route path="/about" element={<AboutSection/>} />
+     <Route path="/login" element={<Login />} />
+     <Route path="/register" element={<Register />} />
      <Route path="/book-table" element={<BookTableSection/>} />
     </Routes>
       
