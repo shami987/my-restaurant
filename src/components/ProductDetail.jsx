@@ -1,19 +1,37 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { menuItems } from "./MenuSection"; // export menuItems from MenuSection so you can reuse it
 import { useState } from "react";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./firebase";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const product = menuItems.find((item) => item.id === parseInt(id));
   const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
 
   if (!product) {
     return <div className="text-center py-20">Product not found</div>;
   }
 
-    // Convert "$20" → 20
+  // Convert "$20" → 20
   const basePrice = parseFloat(product.price.replace("$", ""));
   const totalPrice = basePrice * quantity;
+
+  const handleAddToCart = async () => {
+    try {
+      await addDoc(collection(db, "cart"), {
+        name: product.name,
+        price: basePrice,
+        quantity: quantity,
+        img: product.img, // make sure this is a valid path or imported image
+      });
+      alert("Item added to cart!");
+      navigate("/cart"); // redirect to cart page
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -54,7 +72,7 @@ export default function ProductDetail() {
           {/* Price + quantity + Add to Cart */}
           <div className="flex items-center justify-between">
             <span className="text-2xl font-bold">${totalPrice}</span>
-             {/* Quantity selector */}
+            {/* Quantity selector */}
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -70,7 +88,10 @@ export default function ProductDetail() {
                 +
               </button>
             </div>
-            <button className="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-lg">
+            <button
+              onClick={handleAddToCart}
+              className="bg-yellow-400 text-black px-6 py-3 rounded-full font-bold hover:bg-yellow-500 transition shadow-lg"
+            >
               Add to Cart 🛒
             </button>
           </div>

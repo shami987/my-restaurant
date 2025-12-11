@@ -9,6 +9,8 @@ import FooterSection from "./components/FooterSection";
 import ProductDetail from "./components/ProductDetail";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 
 export default function App() {
@@ -33,6 +35,8 @@ export default function App() {
      <Route path="/about" element={<AboutSection/>} />
      <Route path="/login" element={<Login />} />
      <Route path="/register" element={<Register />} />
+     <Route path="/cart" element={<Cart />} />
+    <Route path="/checkout" element={<Checkout />} />
      <Route path="/book-table" element={<BookTableSection/>} />
     </Routes>
       
