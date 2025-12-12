@@ -37,7 +37,7 @@ const menuItems = [
     category: "Pizza",
     price: "$20",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Crafted with fresh ingredients and baked to perfection — every bite is a celebration.",
     img: pizza1Img,
   },
   {
@@ -46,7 +46,7 @@ const menuItems = [
     category: "Burger",
     price: "$15",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Stacked high with juicy beef, crisp veggies, and creamy sauces — the ultimate comfort bite.",
     img: burgerImg,
   },
   {
@@ -55,7 +55,7 @@ const menuItems = [
     category: "Pizza",
     price: "$17",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Crafted with fresh ingredients and baked to perfection — every bite is a celebration.",
     img: pizzaImg,
   },
   {
@@ -64,7 +64,7 @@ const menuItems = [
     category: "Pasta",
     price: "$18",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Crafted with fresh ingredients and baked to perfection — every bite is a celebration.",
     img: pasta1Img,
   },
   {
@@ -82,7 +82,7 @@ const menuItems = [
     category: "Pizza",
     price: "$15",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Stacked high with juicy beef, crisp veggies, and creamy sauces — the ultimate comfort bite.",
     img: pizza2Img,
   },
   {
@@ -91,7 +91,7 @@ const menuItems = [
     category: "Burger",
     price: "$12",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Crafted with fresh ingredients and baked to perfection — every bite is a celebration.",
     img: burger2Img,
   },
   {
@@ -100,7 +100,7 @@ const menuItems = [
     category: "Burger",
     price: "$14",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Crafted with fresh ingredients and baked to perfection — every bite is a celebration.",
     img: burger3Img,
   },
   {
@@ -109,7 +109,7 @@ const menuItems = [
     category: "Pasta",
     price: "$16",
     description:
-      "Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque",
+      "Stacked high with juicy beef, crisp veggies, and creamy sauces — the ultimate comfort bite.",
     img: pasta2Img,
   },
 ];

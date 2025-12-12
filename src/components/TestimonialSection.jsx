@@ -4,28 +4,28 @@ const testimonials = [
   {
     name: "Mike Hamell",
     role: "magna aliqua",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    text: "The service was outstanding and the food exceeded my expectations. Highly recommended!",
     image:
       "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "Moana Michell",
     role: "magna aliqua",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    text: "I loved the experience from start to finish. The team really knows how to deliver quality.",
     image:
       "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "John Carter",
     role: "magna aliqua",
-    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.",
+    text: "Every visit feels like a treat. Great atmosphere and even better flavors!",
     image:
       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "Sarah Lee",
     role: "magna aliqua",
-    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.",
+    text: "A perfect spot for casual dining with a touch of excellence.",
     image:
       "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
   },

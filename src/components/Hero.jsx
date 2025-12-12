@@ -9,17 +9,17 @@ const slides = [
   {
     title: "Fast Food Restaurant",
     description:
-      "Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.",
+      "Welcome to the ultimate spot for mouth‑watering burgers, crispy fries, and unbeatable flavors. We serve fresh ingredients with a passion for taste.",
   },
   {
     title: "Fast Food Restaurant",
     description:
-      "Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.",
+      "Welcome to the ultimate spot for mouth‑watering burgers, crispy fries, and unbeatable flavors. We serve fresh ingredients with a passion for taste.",
   },
   {
     title: "Fast Food Restaurant",
     description:
-      "Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde.",
+      "Welcome to the ultimate spot for mouth‑watering burgers, crispy fries, and unbeatable flavors. We serve fresh ingredients with a passion for taste.",
   },
 ];
 
