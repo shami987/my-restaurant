@@ -1,17 +1,23 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
-import { db } from "./firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
+import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { auth } from "./firebase"; // make sure auth is exported from firebase.js
+import { auth } from "../firebase"; // make sure auth is exported from firebase.js
 
 export default function Checkout() {
-  const [cartItems, setCartItems] = useState([]);  
+  const [cartItems, setCartItems] = useState([]);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
-   // Fetch cart items from Firestore
+  // Fetch cart items from Firestore
   useEffect(() => {
     const fetchCartItems = async () => {
       const querySnapshot = await getDocs(collection(db, "cart"));
@@ -25,17 +31,16 @@ export default function Checkout() {
   }, []);
 
   const clearCart = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "cart"));
-    querySnapshot.forEach(async (cartDoc) => {
-      await deleteDoc(doc(db, "cart", cartDoc.id));
-    });
-    console.log("Cart cleared!");
-  } catch (error) {
-    console.error("Error clearing cart:", error);
-  }
-};
-
+    try {
+      const querySnapshot = await getDocs(collection(db, "cart"));
+      querySnapshot.forEach(async (cartDoc) => {
+        await deleteDoc(doc(db, "cart", cartDoc.id));
+      });
+      console.log("Cart cleared!");
+    } catch (error) {
+      console.error("Error clearing cart:", error);
+    }
+  };
 
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -62,15 +67,15 @@ export default function Checkout() {
     }
   };
 
-
-
   return (
     <section className="py-20 bg-gray-100 min-h-screen">
       <div className="max-w-2xl mx-auto px-5 bg-white shadow-lg rounded-lg p-8">
         <h1 className="text-3xl font-bold mb-6">Checkout</h1>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Name
+            </label>
             <input
               type="text"
               value={name}
@@ -80,7 +85,9 @@ export default function Checkout() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Address</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Address
+            </label>
             <input
               type="text"
               value={address}
@@ -90,7 +97,9 @@ export default function Checkout() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Phone</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Phone
+            </label>
             <input
               type="tel"
               value={phone}

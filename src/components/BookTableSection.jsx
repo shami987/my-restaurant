@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 export default function BookTableSection() {
   const [formData, setFormData] = useState({
@@ -18,34 +18,33 @@ export default function BookTableSection() {
     });
   };
 
-const handleSubmit = async () => {
-  try {
-    // save to firebase
-    await addDoc(collection(db, "bookings"), {
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email,
-      persons: formData.persons,
-      date: formData.date,
-      createdAt: new Date(),
-    });
+  const handleSubmit = async () => {
+    try {
+      // save to firebase
+      await addDoc(collection(db, "bookings"), {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        persons: formData.persons,
+        date: formData.date,
+        createdAt: new Date(),
+      });
 
-    alert("Table booked successfully!");
+      alert("Table booked successfully!");
 
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      persons: "",
-      date: "",
-    });
-  } catch (error) {
-    console.error("Error saving booking:", error);
-    alert("Failed to save booking. Try again.");
-  }
-};
-
+      // Reset form
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        persons: "",
+        date: "",
+      });
+    } catch (error) {
+      console.error("Error saving booking:", error);
+      alert("Failed to save booking. Try again.");
+    }
+  };
 
   return (
     <section className="py-20 bg-gray-50">
@@ -53,7 +52,7 @@ const handleSubmit = async () => {
         {/* Left Side - Form */}
         <div>
           <h2 className="font-vibes text-6xl mb-10 text-black">Book A Table</h2>
-          
+
           <div className="space-y-5">
             {/* Name Input */}
             <div>
@@ -112,8 +111,18 @@ const handleSubmit = async () => {
                 <option value="10+">10+ Persons</option>
               </select>
               <div className="absolute right-5 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="w-4 h-4 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </div>
             </div>
@@ -126,15 +135,25 @@ const handleSubmit = async () => {
                 value={formData.date}
                 onChange={handleChange}
                 placeholder="mm/dd/yyyy"
-                onFocus={(e) => e.target.type = 'date'}
+                onFocus={(e) => (e.target.type = "date")}
                 onBlur={(e) => {
-                  if (!e.target.value) e.target.type = 'text';
+                  if (!e.target.value) e.target.type = "text";
                 }}
                 className="w-full px-5 py-4 border border-gray-300 rounded-md text-base focus:outline-none focus:border-gray-400 transition bg-white"
               />
               <div className="absolute right-5 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg
+                  className="w-5 h-5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
             </div>

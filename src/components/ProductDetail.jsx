@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { menuItems } from "./MenuSection"; // export menuItems from MenuSection so you can reuse it
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -66,7 +66,9 @@ export default function ProductDetail() {
 
           <div className="mb-6">
             <h2 className="text-xl font-semibold mb-2">Reviews</h2>
-            <p className="text-gray-600 italic">⭐️⭐️⭐️⭐️☆ “Really tasty and fresh!”</p>
+            <p className="text-gray-600 italic">
+              ⭐️⭐️⭐️⭐️☆ “Really tasty and fresh!”
+            </p>
           </div>
 
           {/* Price + quantity + Add to Cart */}

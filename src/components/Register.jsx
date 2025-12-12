@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -17,10 +18,18 @@ export default function Register() {
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Save user info in Firestore with default role
+      await setDoc(doc(db, "users", user.uid), {
+        name,
+        email,
+        role: "customer", // default role
+      });
+
       alert("Registration successful!");
-      // you can also save 'name' to Firestore if needed
-      navigate("/login"); // ✅ redirect to Login page
+      navigate("/login");
     } catch (error) {
       alert(error.message);
     }
@@ -29,7 +38,9 @@ export default function Register() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-black">Register</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-black">
+          Register
+        </h2>
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -80,9 +91,7 @@ export default function Register() {
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-yellow-500 hover:underline">
-            Login
-          </a>
+          <a href="/login" className="text-yellow-500 hover:underline">Login</a>
         </p>
       </div>
     </div>
