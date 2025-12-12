@@ -16,7 +16,7 @@ const links = [
     <header className="relative w-full py-4 bg-black text-white shadow-md z-50">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-between">
         {/* Logo */}
-        <h1 className="font-vibes text-4xl">Feane</h1>
+        <h1 className="font-vibes text-4xl">Gura</h1>
 
         {/* Links (desktop) */}
 <nav className="hidden md:flex space-x-8">

@@ -23,7 +23,7 @@ export default function FooterSection() {
 
         {/* Feane Description + Social Icons */}
         <div className="text-center md:text-left">
-          <h3 className="text-3xl font-vibes mb-6">Feane</h3>
+          <h3 className="text-3xl font-vibes mb-6">Gura</h3>
           <p className="text-gray-300 mb-6">
             Necessary, making this the first true generator on the Internet. It
             uses a dictionary of over 200 Latin words, combined with
