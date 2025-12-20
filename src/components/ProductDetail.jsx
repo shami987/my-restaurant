@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { menuItems } from "./MenuSection"; // export menuItems from MenuSection so you can reuse it
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -19,17 +19,29 @@ export default function ProductDetail() {
   const totalPrice = basePrice * quantity;
 
   const handleAddToCart = async () => {
+    // Require authentication when writing to Firestore (prevents permission errors)
+    if (!auth || !auth.currentUser) {
+      alert("Please log in to add items to your cart.");
+      navigate("/login", { state: { from: `/menu/${id}` } });
+      return;
+    }
+
     try {
-      await addDoc(collection(db, "cart"), {
+      const payload = {
         name: product.name,
         price: basePrice,
         quantity: quantity,
         img: product.img, // make sure this is a valid path or imported image
-      });
+        userId: auth.currentUser.uid,
+      };
+      console.log("Add to cart payload:", payload);
+      const docRef = await addDoc(collection(db, "cart"), payload);
+      console.log("Added cart doc id:", docRef.id);
       alert("Item added to cart!");
       navigate("/cart"); // redirect to cart page
     } catch (error) {
       console.error("Error adding to cart:", error);
+      alert("Failed to add item to cart: " + (error.message || error));
     }
   };
 
